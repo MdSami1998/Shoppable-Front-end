@@ -1,25 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import Navber from './components/shared/navbar/Navber';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navber></Navber>
     </div>
   );
 }
 
 export default App;
+
+
+// git add .
+// git commit -m "first commit"
+// git push 
+
+// "base-100": "#0D1620",
