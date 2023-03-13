@@ -21,7 +21,7 @@ const Navber = () => {
                     </div>
 
                     <div className='flex justify-center md:justify-start w-full'>
-                        <h1 className='font-bold text-xl -ml-10 md:ml-0 md:text-2xl lg:text-3xl'>SHOPP<span className='text-orangerrr'>ABLE</span></h1>
+                        <h1 className='font-bold text-xl -ml-10 md:ml-0 md:text-2xl lg:text-3xl'>SHOPP<span className='text-neutral'>ABLE</span></h1>
                     </div>
 
                 </div>
