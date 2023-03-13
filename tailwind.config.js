@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    colors: {
+      "orangerrr": "#FFB800",
+    },
     extend: {},
   },
   plugins: [require("daisyui")],
@@ -14,9 +17,8 @@ module.exports = {
           primary: "#15191D",
           secondary: "#094563",
           accent: "#0691FB",
-          neutral: "#FCD864",
+          neutral: "#FF9900",
           "base-100": "#1A2647",
-          // "base-100": "#0D1620",  #0D1326
         },
       },
     ],
