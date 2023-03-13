@@ -4,10 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    colors: {
-      "orangerrr": "#FFB800",
+    extend: {
+      colors: {
+        "orangerrr": "#FFB800",
+      },
     },
-    extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
