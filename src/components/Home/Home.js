@@ -9,7 +9,7 @@ const Home = () => {
 
             </div>
             <div>
-                <div className="hero md:min-h-screen bg-base-200 text-white">
+                <div className="hero md:min-h-screen text-white">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <img className="w-full lg:max-w-lg rounded-lg shadow-2xl" src={hero} alt="" />
                         <div className='text-left'>

@@ -27,7 +27,6 @@ export default App;
 // git push 
 
 // card code 
-
 // html code:------
 // <div class="card">
 //   Click me
