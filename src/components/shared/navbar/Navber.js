@@ -8,8 +8,8 @@ const Navber = () => {
         <li><Link className='btn btn-ghost' to="/contact">Contact</Link></li>
     </>
     return (
-        <div className='text-white flex justify-between py-5'>
-            <div className="navbar bg-base-100">
+        <div className='text-white flex justify-between py-5 sticky top-0 z-10 bg-base-100'>
+            <div className="navbar">
                 <div className="navbar-start w-full">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
