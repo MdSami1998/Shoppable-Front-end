@@ -1,7 +1,6 @@
 import React from 'react';
-import '../Product/Product.css'
 
-const Product = ({ product }) => {
+const AllProduct = ({ product }) => {
     const { thumbnail, title, description, price, stock } = product;
     return (
         <div className="card w-full shadow-2xl text-white" style={{ backgroundColor: "#253560" }}>
@@ -31,5 +30,4 @@ const Product = ({ product }) => {
 
     );
 };
-
-export default Product;
+export default AllProduct;

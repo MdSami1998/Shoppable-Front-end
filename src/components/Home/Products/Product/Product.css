@@ -1,4 +1,4 @@
-.productCardBtn {
+.buyNowBtn {
     font-size: 16px;
     padding: 0.2em 1.2em;
     border: transparent;
@@ -7,13 +7,15 @@
     color: #1A2647;
     font-weight: 600;
     border-radius: 4px;
+    transition: .2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.productCardBtn:hover {
+.buyNowBtn:hover {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, #FF9900 0%, #ffcd4e 100%);
+    letter-spacing: 1.5px;
 }
 
-.productCardBtn:active {
+.buyNowBtn:active {
     transform: translate(0em, 0.2em);
 }
