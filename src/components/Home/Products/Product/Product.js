@@ -4,7 +4,7 @@ import '../Product/Product.css'
 const Product = ({ product }) => {
     const { thumbnail, title, description, price, stock } = product;
     return (
-        <div className="card w-full bg-base-100 shadow-xl text-white border border-red-500">
+        <div className="card w-full shadow-2xl text-white" style={{ backgroundColor:"#253560" }}>
             <figure className="px-10 pt-10">
                 <img src={thumbnail} alt="Shoes" className="rounded-xl" />
             </figure>
