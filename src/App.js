@@ -28,7 +28,7 @@ export default App;
 
 // card code 
 // html code:------
-// <div class="card">
+// <div className="card">
 //   Click me
 // </div>
 
