@@ -1,7 +1,6 @@
 import React from 'react';
 import './HeroBanner.css'
 import hero from '../../../Assets/BAnner.jfif'
-import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -26,6 +25,8 @@ const Banner = () => {
                 </div>
             </div>
         </div>
+
+        
     );
 };
 
