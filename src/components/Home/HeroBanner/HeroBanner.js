@@ -1,6 +1,7 @@
 import React from 'react';
 import './HeroBanner.css'
 import hero from '../../../Assets/BAnner.jfif'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -14,12 +15,14 @@ const Banner = () => {
 
                             <p className="py-6 text-lg md:text-2xl md:mt-8">The One-Stop Grocery Store for All Your Needs. Shop anytime, anywhere and enjoy the ease of online grocery shopping with us. Shop Fresh, Shop Fast, Shop Conveniently</p>
 
+                            <Link to="/products">
                             <button className="learn-more">
                                 <span className="circle" aria-hidden="true">
                                     <span className="icon arrow"></span>
                                 </span>
-                                <span className="button-text">Learn More</span>
+                                <span className="button-text">Shop Now</span>
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

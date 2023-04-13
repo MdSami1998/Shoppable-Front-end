@@ -6,6 +6,7 @@ const Navber = () => {
         <li><Link className='btn btn-ghost' to='/'>Home</Link></li>
         <li><Link className='btn btn-ghost' to="/about">About</Link></li>
         <li><Link className='btn btn-ghost' to="/contact">Contact</Link></li>
+        <li><Link className='btn btn-ghost' to="/signin">Sign In</Link></li>
     </>
     return (
         <div className='text-white flex justify-between py-5 sticky top-0 z-10 bg-base-100'>
