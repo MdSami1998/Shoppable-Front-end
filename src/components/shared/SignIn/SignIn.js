@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import icon from '../../../Assets/Authentication Icons/Mobile login-amico.png'
 import '../SignIn/SignIn.css'
 import auth from '../../../firebase.init';
@@ -15,6 +15,9 @@ const SignIn = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate()
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     let signInErrorMessage;
     if (error) {
@@ -29,7 +32,7 @@ const SignIn = () => {
     }
 
     if (user) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
     // handle sign In function 
@@ -38,8 +41,6 @@ const SignIn = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         await signInWithEmailAndPassword(email, password);
-
-        navigate('/');
     }
     return (
         <div className="hero w-9/12 mx-auto py-12 bg-base-200 text-white">

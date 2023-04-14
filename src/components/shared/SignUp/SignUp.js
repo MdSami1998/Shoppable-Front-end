@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import icon from '../../../Assets/Authentication Icons/Mobile login-amico.png'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -7,7 +7,11 @@ import auth from '../../../firebase.init';
 const SignUp = () => {
 
     const [errorMsg, setErrorMsg] = useState('');
+    
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const [
         createUserWithEmailAndPassword,
         user,
@@ -28,7 +32,7 @@ const SignUp = () => {
     }
 
     if (user) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
     const handleSignUp = async (e) => {
