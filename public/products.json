@@ -1,0 +1,146 @@
+[
+    {
+        "image": "https://i.ibb.co/hYjYvzM/Potato.webp",
+        "name": "Potato Regular",
+        "price": "2",
+        "stock": "50kg"
+    },
+    {
+        "image": "https://i.ibb.co/3MqbFzT/Onion.webp",
+        "name": "Onion",
+        "price": "4",
+        "stock": "55kg"
+    },
+    {
+        "image": "https://i.ibb.co/4fNsgxS/Garlic.webp",
+        "name": "Garlic",
+        "price": "8",
+        "stock": "55kg"
+    },
+    {
+        "image": "https://i.ibb.co/71KLBrD/Ginger.webp",
+        "name": "Ginger",
+        "price": "6",
+        "stock": "65kg"
+    },
+    {
+        "image": "https://i.ibb.co/JCDfPSx/Honey.webp",
+        "name": "Honey",
+        "price": "10",
+        "stock": "60pcs"
+    },
+    {
+        "image": "https://i.ibb.co/X3ffVmq/Rice.jpg",
+        "name": "Rice",
+        "price": "5",
+        "stock": "550kg"
+    },
+    {
+        "image": "https://i.ibb.co/ZLWLnkg/egg.webp",
+        "name": "Santana Singleton",
+        "price": "1",
+        "stock": "100pcs"
+    },
+    {
+        "image": "https://i.ibb.co/hXbFmzs/Oil.webp",
+        "name": "Oil",
+        "price": "12",
+        "stock": "100L"
+    },
+    {
+        "image": "https://i.ibb.co/KW1nWgg/Lentil.jpg",
+        "name": "Lentil",
+        "price": "4",
+        "stock": "150kg"
+    },
+    {
+        "image": "https://i.ibb.co/6RMMbsr/Salt.jpg",
+        "name": "Salt",
+        "price": "6",
+        "stock": "85kg"
+    },
+    {
+        "image": "https://i.ibb.co/MMnSTmY/Sugar.jpg",
+        "name": "Sugar",
+        "price": "15",
+        "stock": "90kg"
+    },
+    {
+        "image": "https://i.ibb.co/rdwksGb/Tomato-Sauce.jpg",
+        "name": "Tomato Sauce",
+        "price": "11",
+        "stock": "68pcs"
+    },
+    {
+        "image": "https://i.ibb.co/F7swQvx/Chilli-Sauce.jpg",
+        "name": "Chilli-Sauce",
+        "price": "13",
+        "stock": "85pcs"
+    },
+    {
+        "image": "https://i.ibb.co/wY7JZyC/Powder-Milk.jpg",
+        "name": "Powder Milk",
+        "price": "30",
+        "stock": "95kg"
+    },
+    {
+        "image": "https://i.ibb.co/hFjBNDF/Condensed-Milk.jpg",
+        "name": "Condensed Milk",
+        "price": "15",
+        "stock": "75"
+    },
+    {
+        "image": "https://i.ibb.co/tC8GFHd/Yougart.jpg",
+        "name": "Yougart",
+        "price": "14",
+        "stock": "55pcs"
+    },
+    {
+        "image": "https://i.ibb.co/pKgpjhJ/Coffee.jpg",
+        "name": "Coffee",
+        "price": "10",
+        "stock": "55pcs"
+    },
+    {
+        "image": "https://i.ibb.co/ZBHcFMd/Turmeric-Powder.jpg",
+        "name": "Turmeric Powder",
+        "price": "22",
+        "stock": "65kg"
+    },
+    {
+        "image": "https://i.ibb.co/yVbCK6w/Chilli-Powder.jpg",
+        "name": "Chilli Powder",
+        "price": "55",
+        "stock": "95"
+    },
+    {
+        "image": "https://i.ibb.co/mSrf4qz/Cumin-Powder.jpg",
+        "name": "Cumin Powder",
+        "price": "26",
+        "stock": "135kg"
+    },
+    {
+        "image": "https://i.ibb.co/prRLfqb/Chick-Peas.jpg",
+        "name": "Chick Peas",
+        "price": "35",
+        "stock": "77kg"
+    },
+    {
+        "image": "https://i.ibb.co/zXPnYhJ/White-Chick-Peas.jpg",
+        "name": "White Chick Peas",
+        "price": "40",
+        "stock": "88kg"
+    },
+    {
+        "image": "https://i.ibb.co/XYfwnBW/Arrow-Root-Powder.jpg",
+        "name": "ArrowRoot Powder",
+        "price": "25",
+        "stock": "44kg"
+    },
+    {
+        "image": "https://i.ibb.co/C9bNF9j/Flour.jpg",
+        "name": "Flour",
+        "price": "20",
+        "stock": "440kg"
+    }
+]
