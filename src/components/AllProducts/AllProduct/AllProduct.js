@@ -1,17 +1,17 @@
 import React from 'react';
 
 const AllProduct = ({ product }) => {
-    const {  image, name, price, stock } = product;
+    const { _id, image, name, price, stock } = product;
     return (
         <div className="card w-full shadow-2xl text-white" style={{ backgroundColor: "#253560" }}>
             <figure className="px-10 pt-10">
-                <img src={ image} alt={name} className="rounded-xl" />
+                <img src={image} alt={name} className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <h2>Price: <span className='text-xl'>{price}$</span></h2>
                 <h2>Stock: <span className='text-xl'>{stock}</span></h2>
-                
+
                 <div className="card-actions mt-2">
                     <button className='buyNowBtn flex items-center'>
                         <span>Buy Now</span>
