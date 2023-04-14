@@ -1,12 +1,22 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navber = () => {
+    const [user] = useAuthState(auth);
+
     const menuItems = <>
         <li><Link className='btn btn-ghost' to='/'>Home</Link></li>
         <li><Link className='btn btn-ghost' to="/about">About</Link></li>
         <li><Link className='btn btn-ghost' to="/contact">Contact</Link></li>
-        <li><Link className='btn btn-ghost' to="/signin">Sign In</Link></li>
+        {
+            user ?
+                <li><button onClick={() => signOut(auth)} className='btn btn-ghost'>Sign out</button></li>
+                :
+                <li><Link className='btn btn-ghost' to="/signin">Sign In</Link></li>
+        }
     </>
     return (
         <div className='text-white flex justify-between py-5 sticky top-0 z-10 bg-base-100'>
