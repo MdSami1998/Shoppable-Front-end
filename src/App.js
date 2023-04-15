@@ -8,6 +8,9 @@ import AllProducts from './components/AllProducts/AllProducts';
 import LogIn from './components/shared/SignIn/SignIn';
 import SignUp from './components/shared/SignUp/SignUp';
 import Footer from './components/shared/Footer/Footer';
+import NotFound from './components/shared/NotFound/NotFound';
+import ProductDetails from './components/ProductDetails/ProductDetails';
+import RequireAuth from './components/shared/SignIn/RequireAuth';
 
 function App() {
   return (
@@ -15,12 +18,26 @@ function App() {
       <Navber></Navber>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+
         <Route path='/home' element={<Home></Home>}></Route>
+
         <Route path='/products' element={<AllProducts></AllProducts>}></Route>
+
         <Route path='/about' element={<About></About>}></Route>
+
         <Route path='/contact' element={<Contact></Contact>}></Route>
+
         <Route path='/signin' element={<LogIn></LogIn>}></Route>
+
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+
+        <Route path='/product-details/:productId' element={
+          <RequireAuth>
+            <ProductDetails></ProductDetails>
+          </RequireAuth>
+        }></Route>
+        
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
