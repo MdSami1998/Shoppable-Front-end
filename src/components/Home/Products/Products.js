@@ -3,6 +3,7 @@ import Product from './Product/Product';
 import '../Products/Products.css'
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import Loader from '../../shared/Loader/Loader';
 
 const Products = () => {
 
@@ -12,7 +13,7 @@ const Products = () => {
         )
     )
     if (isLoading) {
-        return 'loading'
+        return <Loader></Loader>
     }
     return (
         <div>

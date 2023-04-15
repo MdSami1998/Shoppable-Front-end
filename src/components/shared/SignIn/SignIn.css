@@ -8,12 +8,13 @@
     font-weight: 600;
     border-radius: 4px;
     transition: .2s cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 3px;
 }
 
 .signInBtn:hover {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, #FF9900 0%, #ffcd4e 100%);
-    letter-spacing: 1.5px;
+    letter-spacing: 5px;
 }
 
 .signInBtn:active {

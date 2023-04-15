@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import icon from '../../../Assets/Authentication Icons/Mobile login-amico.png'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
+import AuthenticationLoader from '../AuthenticationLoader/AuthenticationLoader';
 
 const SignUp = () => {
 
@@ -28,7 +30,7 @@ const SignUp = () => {
     }
 
     if (loading) {
-        return 'Loading'
+        return <AuthenticationLoader></AuthenticationLoader>
     }
 
     if (user) {
@@ -49,7 +51,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className="hero w-9/12 mx-auto py-12 bg-base-200 text-white">
+        <div className="hero w-full md:w-9/12 mx-auto py-12 bg-base-200 text-white my-0 md:my-10">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
@@ -76,13 +78,15 @@ const SignUp = () => {
                             <input type="password" name='confirmPassword' placeholder="confirm password" className="input input-bordered" required />
                         </div>
 
+                            <h1 className='text-red-500 '>{errorMsg}</h1>
+
                         <div className="form-control">
                             <div className="card-actions justify-center w-full">
                                 <button type='submit' className='signInBtn mt-2'> Sign Up
                                 </button>
                             </div>
-                            <h1 className='text-red-500 text-5xl'>{errorMsg}</h1>
                             {signupErrorMessage}
+                            <SocialLogIn></SocialLogIn>
                             <Link to='/signin'><p className='mt-2 text-sm text-accent'>Already have an account? Sign In</p></Link>
                         </div>
                     </form>

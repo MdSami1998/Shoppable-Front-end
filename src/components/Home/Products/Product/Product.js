@@ -1,8 +1,15 @@
 import React from 'react';
 import '../Product/Product.css'
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-    const { image, name, price, stock } = product;
+    const { _id, image, name, price, stock } = product;
+
+    const navigate = useNavigate();
+    const handleProductDetails = (id) => {
+        navigate(`/product-details/${id}`)
+    }
+
     return (
         <div className="card w-full shadow-2xl text-white" style={{ backgroundColor: "#253560" }}>
             <figure className="px-10 pt-10">
@@ -14,7 +21,7 @@ const Product = ({ product }) => {
                 <h2>Stock: <span className='text-xl'>{stock}</span></h2>
 
                 <div className="card-actions mt-2">
-                    <button className='buyNowBtn flex items-center'>
+                    <button onClick={() => handleProductDetails(_id)} className='buyNowBtn flex items-center'>
                         <span>Buy Now</span>
                         <svg viewBox="0 0 13 10" height="10px" width="15px">
                             <path d="M1,5 L11,5"></path>

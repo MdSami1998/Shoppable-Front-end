@@ -4,6 +4,9 @@ import icon from '../../../Assets/Authentication Icons/Mobile login-amico.png'
 import '../SignIn/SignIn.css'
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
+import Loader from '../Loader/Loader';
+import AuthenticationLoader from '../AuthenticationLoader/AuthenticationLoader';
 
 const SignIn = () => {
 
@@ -28,7 +31,7 @@ const SignIn = () => {
     }
 
     if (loading) {
-        return 'loading';
+        return <AuthenticationLoader></AuthenticationLoader>
     }
 
     if (user) {
@@ -43,12 +46,12 @@ const SignIn = () => {
         await signInWithEmailAndPassword(email, password);
     }
     return (
-        <div className="hero w-9/12 mx-auto py-12 bg-base-200 text-white">
+        <div className="hero w-full md:w-9/12 mx-auto my-0 md:my-10 py-12 bg-base-200 text-white">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                     <form onSubmit={handleSignIn} className="card-body">
-                        <h1 className="text-4xl font-bold tracking-widest">Login now!</h1>
+                        <h1 className="text-4xl font-bold tracking-widest">Signin now!</h1>
 
                         <div className="form-control">
                             <label className="label">
@@ -70,11 +73,12 @@ const SignIn = () => {
                         </div>
 
                         <div className="form-control">
-                            <div className="card-actions justify-center w-full">
+                            {/* <div className="card-actions justify-center w-full"> */}
                                 <button type='submit' className='signInBtn'> Sign In
                                 </button>
-                            </div>
+                            {/* </div> */}
                             {/* <input className='signInBtn' type="submit" value='Log In' /> */}
+                            <SocialLogIn></SocialLogIn>
                             <Link to='/signup'><p className='mt-2 text-sm text-accent'>Create New Account?</p></Link>
                         </div>
                     </form>
