@@ -12,6 +12,9 @@ const Navber = () => {
         <li><Link className='btn btn-ghost' to="/about">About</Link></li>
         <li><Link className='btn btn-ghost' to="/contact">Contact</Link></li>
         {
+            user && <li><Link className='btn btn-ghost' to="/dashboard">Dashboard</Link></li>
+        }
+        {
             user ?
                 <li><button onClick={() => signOut(auth)} className='btn btn-ghost'>Sign out</button></li>
                 :
@@ -31,11 +34,16 @@ const Navber = () => {
                         </ul>
                     </div>
 
+
                     <Link to='/' className='cursor-pointer'>
-                        <div className='flex justify-center md:justify-start w-full'>
-                            <h1 className='font-bold text-xl -ml-10 md:ml-0 md:text-2xl lg:text-3xl'>SHOPP<span className='text-neutral'>ABLE</span></h1>
+                        <div className='flex justify-between md:justify-start w-full'>
+                            <h1 className='font-bold text-xl ml-10 md:ml-0 md:text-2xl lg:text-3xl'>SHOPP<span className='text-neutral'>ABLE</span></h1>
                         </div>
                     </Link>
+
+                    <div className="navbar-end">
+                        <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    </div>
 
                 </div>
                 <div className="navbar-end hidden lg:flex">
