@@ -9,8 +9,11 @@ import LogIn from './components/shared/SignIn/SignIn';
 import SignUp from './components/shared/SignUp/SignUp';
 import Footer from './components/shared/Footer/Footer';
 import NotFound from './components/shared/NotFound/NotFound';
-import ProductDetails from './components/ProductDetails/ProductDetails';
 import RequireAuth from './components/shared/SignIn/RequireAuth';
+import Dashboard from './components/Dashboard/Dashboard';
+import Myprofile from './components/Dashboard/MyProfile/Myprofile';
+import Myorders from './components/Dashboard/MyOrders/Myorders';
+import Order from './components/Order/Order';
 
 function App() {
   return (
@@ -19,24 +22,33 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
 
-        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='home' element={<Home></Home>}></Route>
 
-        <Route path='/products' element={<AllProducts></AllProducts>}></Route>
+        <Route path='products' element={<AllProducts></AllProducts>}></Route>
 
-        <Route path='/about' element={<About></About>}></Route>
+        <Route path='about' element={<About></About>}></Route>
 
-        <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='contact' element={<Contact></Contact>}></Route>
 
-        <Route path='/signin' element={<LogIn></LogIn>}></Route>
+        <Route path='signin' element={<LogIn></LogIn>}></Route>
 
-        <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='signup' element={<SignUp></SignUp>}></Route>
 
-        <Route path='/product-details/:productId' element={
+        <Route path='order/:orderId' element={
           <RequireAuth>
-            <ProductDetails></ProductDetails>
+            <Order></Order>
           </RequireAuth>
         }></Route>
-        
+
+        <Route path='dashboard' element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          <Route index element={<Myprofile></Myprofile>}></Route>
+          <Route path='orders' element={<Myorders></Myorders>}></Route>
+        </Route>
+
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
