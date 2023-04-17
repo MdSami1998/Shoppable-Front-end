@@ -73,11 +73,10 @@ const SignIn = () => {
                         </div>
 
                         <div className="form-control">
-                            {/* <div className="card-actions justify-center w-full"> */}
+                            <div className="card-actions justify-center w-full">
                                 <button type='submit' className='signInBtn'> Sign In
                                 </button>
-                            {/* </div> */}
-                            {/* <input className='signInBtn' type="submit" value='Log In' /> */}
+                            </div>
                             <SocialLogIn></SocialLogIn>
                             <Link to='/signup'><p className='mt-2 text-sm text-accent'>Create New Account?</p></Link>
                         </div>
