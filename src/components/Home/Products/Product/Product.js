@@ -3,7 +3,7 @@ import '../Product/Product.css'
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-    const { _id, image, name, price, stock } = product;
+    const { _id, image, name, price, stock, unit } = product;
 
     const navigate = useNavigate();
     const handleProductDetails = (id) => {
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <h2>Price: <span className='text-xl'>{price}$</span></h2>
-                <h2>Stock: <span className='text-xl'>{stock}</span></h2>
+                <h2>Stock: <span className='text-xl'>{stock} {unit}</span></h2>
 
                 <div className="card-actions mt-2">
                     <button onClick={() => handleProductDetails(_id)} className='buyNowBtn flex items-center'>
@@ -26,7 +26,8 @@ const Product = ({ product }) => {
                         <svg viewBox="0 0 13 10" height="10px" width="15px">
                             <path d="M1,5 L11,5"></path>
                             <polyline points="8 1 12 5 8 9"></polyline>
-                        </svg></button>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>

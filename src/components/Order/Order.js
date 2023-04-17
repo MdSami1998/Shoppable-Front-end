@@ -15,7 +15,7 @@ const Order = () => {
     const [quan, setQuan] = useState(0);
     const orderRef = useRef();
 
-    const { data: product, isLoading } = useQuery('product', () =>
+    const { data: product, isLoading, refetch } = useQuery('product', () =>
         fetch(`http://localhost:5000/product/${orderId}`).then(res =>
             res.json()
         )
@@ -35,20 +35,20 @@ const Order = () => {
 
     const handleOrderBtn = (e) => {
         e.preventDefault();
-        const stock = product.stock;
 
         const email = user?.email;
         const userName = user?.displayName;
         const productName = product.name;
-        const quantity = e.target.quantity.value;
+        const orderQuantity = e.target.quantity.value;
         const address = e.target.address.value;
-        const phone = e.target.phone.value;
 
-        const order = { email, userName, productName, quantity, address, phone, price };
+        const order = { email, userName, productName, orderQuantity, address, price };
 
-        if (quantity > stock) {
-            return toast.warning(`Stock available ${stock}.You can't purchage more then ${stock}`)
-        }
+
+
+        // if (orderQuantity > product.stock) {
+        //     return toast.warning(`Stock available ${stock}.You can't purchage more then ${stock}`)
+        // }
 
         fetch('http://localhost:5000/order', {
             method: 'POST',
@@ -59,22 +59,45 @@ const Order = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     toast.success('Order Placed!')
                 }
             })
         e.target.reset();
         setPrice(0)
+
+        const updatedStock = parseInt(product.stock) - parseInt(orderQuantity);
+        const stock = updatedStock;
+        console.log(stock)
+
+        const name = product.name;
+        const image = product.image;
+        const unit = product.unit;
+        const updatedProduct = { name, price, stock, image, unit };
+
+        fetch(`http://localhost:5000/updateProduct/${orderId}`, {
+            method: 'PUT',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount === 1) {
+                    refetch();
+                }
+            })
     }
 
     return (
-        <form onSubmit={handleOrderBtn} className="hero md:min-h-full">
+        <form onSubmit={handleOrderBtn} className="hero md:min-h-full text-white">
             <div className="hero-content flex-col lg:flex-row md:w-3/5">
                 <div>
                     <img className='w-full md:w-96 mx-auto' src={product.image} alt="" />
-                    <div className='mt-2 border border-accent p-2 rounded '>
-                        <p className='text-accent text-xl font-semibold mb-2'>{product.name}</p>
+                    <div className='mt-2 p-2 rounded '>
+                        <p className='text-xl font-semibold mb-2 text-orangerrr border border-orangerrr p-2 rounded hover:tracking-wider transition-all'>{product.name}</p>
                     </div>
                 </div>
 
@@ -90,37 +113,37 @@ const Order = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Stock Available:</span>
+                            <span className="label-text text-white">Stock Available:</span>
                         </label>
-                        <input type="text" value={`${product.stock}`} className="input input-bordered" disabled name='stock' />
+                        <input type="text" value={`${product.stock} ${product.unit}`} className="input input-bordered" disabled name='stock' />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Quantity</span>
+                            <span className="label-text text-white">Quantity</span>
                         </label>
                         <input ref={orderRef} onChange={handlePrice} type="number" placeholder='Quantity' className="input input-bordered" name='quantity' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Price: ${product.price}  </span>
+                            <span className="label-text text-white">Price: ${product.price} /{product.unit}  </span>
                         </label>
-                        <input type="text" value={price} className="input input-bordered" required disabled />
+                        <input type="text" value={`${price} $`} className="input input-bordered" required disabled />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Address:</span>
+                            <span className="label-text text-white">Address:</span>
                         </label>
                         <input type="text" placeholder='Address' className="input input-bordered" name='address' required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Phone:</span>
+                            <span className="label-text text-white">Phone:</span>
                         </label>
                         <input type="tel" placeholder='+880' className="input input-bordered" name='phone' />
                     </div>
 
-                    <button disabled={(quan > product.stock) ? true : false} type='submit' className="btn btn-secondary sm:btn-sm md:btn-md hover:bg-transparent hover:text-secondary">purchase</button>
+                    <button disabled={(quan > product.stock || quan <= 0) ? true : false} type='submit' className="buyNowBtn flex items-center btn btn-secondary sm:btn-sm md:btn-md">Order Now</button>
                 </div>
             </div>
         </form>
