@@ -5,8 +5,8 @@ import '../SignIn/SignIn.css'
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
-import Loader from '../Loader/Loader';
 import AuthenticationLoader from '../AuthenticationLoader/AuthenticationLoader';
+import useToken from '../../../hooks/useToken';
 
 const SignIn = () => {
 
@@ -17,10 +17,13 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+
     const navigate = useNavigate()
     const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
+
+    const [token] = useToken(user)
 
     let signInErrorMessage;
     if (error) {
@@ -34,7 +37,7 @@ const SignIn = () => {
         return <AuthenticationLoader></AuthenticationLoader>
     }
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
@@ -51,7 +54,7 @@ const SignIn = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                     <form onSubmit={handleSignIn} className="card-body">
-                        <h1 className="text-4xl font-bold tracking-widest">Signin now!</h1>
+                        <h1 className="text-4xl font-bold tracking-widest">SignIn now!</h1>
 
                         <div className="form-control">
                             <label className="label">
@@ -67,7 +70,7 @@ const SignIn = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover text-xs text-accent">Forgot password?</a>
+                                <Link to='/' className="text-xs text-accent  hover:underline hover:text-sky-400">Forgot password?</Link>
                             </label>
                             {signInErrorMessage}
                         </div>
@@ -78,7 +81,7 @@ const SignIn = () => {
                                 </button>
                             </div>
                             <SocialLogIn></SocialLogIn>
-                            <Link to='/signup'><p className='mt-2 text-sm text-accent'>Create New Account?</p></Link>
+                            <Link to='/signup'><p className='mt-2 text-sm text-accent hover:underline hover:text-sky-400'>Create New Account?</p></Link>
                         </div>
                     </form>
                 </div>
