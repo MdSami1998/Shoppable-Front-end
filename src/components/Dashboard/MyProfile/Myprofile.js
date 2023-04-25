@@ -7,46 +7,46 @@ import { toast } from 'react-toastify';
 
 const Myprofile = () => {
     const [user] = useAuthState(auth)
-    // const { data: member, isLoading, refetch } = useQuery('member', () =>
-    //     fetch(`http://localhost:5000/member?email=${user.email}`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //     }).then(res =>
-    //         res.json()
-    //     )
-    // )
-    // if (isLoading) {
-    //     return <Loader></Loader>
-    // }
+    const { data: member, isLoading, refetch } = useQuery('member', () =>
+        fetch(`http://localhost:5000/member?email=${user.email}`, {
+            method: 'GET',
+            // headers: {
+            //     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            // }
+        }).then(res =>
+            res.json()
+        )
+    )
+    if (isLoading) {
+        return <Loader></Loader>
+    }
 
 
-    // const handleProfileUpdate = (e) => {
-    //     e.preventDefault();
-    //     const email = member.email;
+    const handleProfileUpdate = (e) => {
+        e.preventDefault();
+        const email = member.email;
 
-    //     const education = e.target.education.value;
-    //     const city = e.target.city.value;
-    //     const district = e.target.district.value;
-    //     const phone = e.target.phone.value;
+        const education = e.target.education.value;
+        const city = e.target.city.value;
+        const district = e.target.district.value;
+        const phone = e.target.phone.value;
 
-    //     const updatedProfile = { education, city, district, phone };
+        const updatedProfile = { education, city, district, phone };
 
-    //     fetch(`http://localhost:5000/member/${email}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(updatedProfile)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             refetch();
-    //             toast.success('Profile Updated')
-    //         });
-    //     e.target.reset();
-    // }
+        fetch(`http://localhost:5000/member/${email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedProfile)
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch();
+                toast.success('Profile Updated')
+            });
+        e.target.reset();
+    }
     return (
         <div>
             <h1 className='text-4xl md:text-5xl text-orangerrr mb-10 mt-16 md:mt-0 tracking-widest font-semibold'>About Me</h1>
@@ -59,26 +59,26 @@ const Myprofile = () => {
                         </tr>
                         <tr>
                             <td className='text-xl font-semibold text-white text-justify'>Email:</td>
-                            <td className='text-lg'>{}</td>
+                            <td className='text-lg'>{user?.email}</td>
                         </tr>
                         <tr>
                             <td className='text-xl font-semibold text-white text-justify'>Education:</td>
-                            <td className='text-lg'>{}</td>
+                            <td className='text-lg'>{member?.education}</td>
                         </tr>
                         <tr>
                             <td className='text-xl font-semibold text-white text-justify'>Address:</td>
-                            <td className='text-lg'><span className='text-white'>City:</span> {} <span style={{ marginLeft: '5rem' }} className='text-white'>District:</span> {}</td>
+                            <td className='text-lg'><span className='text-white'>City:</span> {member?.city} <span style={{ marginLeft: '5rem' }} className='text-white'>District:</span> {member?.district}</td>
                         </tr>
                         <tr>
                             <td className='text-xl font-semibold text-white text-justify'>Phone:</td>
-                            <td className='text-lg'>{}</td>
+                            <td className='text-lg'>{member?.phone}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <h1 className='text-4xl md:text-5xl text-orangerrr mb-8 mt-16 tracking-widest font-semibold'>Update Your Details</h1>
+            <h1 className='text-2xl md:text-5xl text-orangerrr mb-8 mt-16 tracking-widest font-semibold'>Update Your Details</h1>
 
-            <form>
+            <form onSubmit={handleProfileUpdate}>
                 <div className="card-body p-3 md:p-8 w-full md:w-3/6  rounded-lg">
 
                     <div className="form-control">
@@ -110,9 +110,9 @@ const Myprofile = () => {
                     </div>
 
                     <div className="card-actions justify-center w-full mt-5">
-                                <button type='submit' className='signInBtn'>Update
-                                </button>
-                            </div>
+                        <button type='submit' className='signInBtn'>Update
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

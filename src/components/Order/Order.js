@@ -41,8 +41,9 @@ const Order = () => {
         const productName = product.name;
         const orderQuantity = e.target.quantity.value;
         const address = e.target.address.value;
+        const orderUnit = product.unit;
 
-        const order = { email, userName, productName, orderQuantity, address, price };
+        const order = { email, userName, productName, orderQuantity, address, price, orderUnit };
 
 
 
@@ -68,7 +69,6 @@ const Order = () => {
 
         const updatedStock = parseInt(product.stock) - parseInt(orderQuantity);
         const stock = updatedStock;
-        console.log(stock)
 
         const name = product.name;
         const image = product.image;

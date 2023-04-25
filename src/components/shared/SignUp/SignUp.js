@@ -5,14 +5,11 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import AuthenticationLoader from '../AuthenticationLoader/AuthenticationLoader';
+import useToken from '../../../hooks/useToken';
 
 const SignUp = () => {
 
     const [errorMsg, setErrorMsg] = useState('');
-    
-    const navigate = useNavigate();
-    const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
 
     const [
         createUserWithEmailAndPassword,
@@ -20,6 +17,12 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    
+    const [token] = useToken(user);
 
     let signupErrorMessage;
     if (error) {
@@ -33,12 +36,13 @@ const SignUp = () => {
         return <AuthenticationLoader></AuthenticationLoader>
     }
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+        const displayName = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
@@ -46,7 +50,7 @@ const SignUp = () => {
             setErrorMsg("Password Doesn't Match")
         }
         else {
-            await createUserWithEmailAndPassword(email, password, confirmPassword)
+            await createUserWithEmailAndPassword(displayName, email, password, confirmPassword)
         }
     }
 
@@ -57,11 +61,20 @@ const SignUp = () => {
 
                     <form onSubmit={handleSignUp} className="card-body">
                         <h1 className="text-4xl font-bold tracking-widest">Register!</h1>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Name</span>
+                            </label>
+                            <input type="text" name='email' placeholder="name" className="input input-bordered" required />
+                        </div>
+
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white">Email</span>
                             </label>
-                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">
@@ -78,7 +91,7 @@ const SignUp = () => {
                             <input type="password" name='confirmPassword' placeholder="confirm password" className="input input-bordered" required />
                         </div>
 
-                            <h1 className='text-red-500 '>{errorMsg}</h1>
+                        <h1 className='text-red-500 '>{errorMsg}</h1>
 
                         <div className="form-control">
                             <div className="card-actions justify-center w-full">
@@ -87,7 +100,7 @@ const SignUp = () => {
                             </div>
                             {signupErrorMessage}
                             <SocialLogIn></SocialLogIn>
-                            <Link to='/signin'><p className='mt-2 text-sm text-accent'>Already have an account? Sign In</p></Link>
+                            <Link to='/signin'><p className='mt-2 text-sm text-accent hover:underline hover:text-sky-400'>Already have an account? Sign In</p></Link>
                         </div>
                     </form>
                 </div>
