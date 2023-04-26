@@ -11,17 +11,16 @@ const CheckoutForm = ({ order }) => {
     const [transectionID, setTransectionID] = useState('');
     const [clientSecret, setClientSecret] = useState("");
 
-    const { _id, price, userName, email } = order;
+    const { _id, orderPrice, userName, email } = order;
 
     useEffect(() => {
-        // http://localhost:5000/create-payment-intent
         fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ price }),
+            body: JSON.stringify({ orderPrice }),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -29,7 +28,7 @@ const CheckoutForm = ({ order }) => {
                     setClientSecret(data.clientSecret)
                 }
             });
-    }, [price]);
+    }, [orderPrice]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -76,7 +75,7 @@ const CheckoutForm = ({ order }) => {
             setTransectionID(paymentIntent.id)
             setSuccess('Congrates!Your payment is completed');
 
-            // store payment on database
+            // store payment on database 
             const payment = {
                 order: _id,
                 transectionID: paymentIntent.id

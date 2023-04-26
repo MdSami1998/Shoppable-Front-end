@@ -25,7 +25,7 @@ const Myorders = () => {
                 }
                 return res.json()
             })
-            .then(data => 
+            .then(data =>
                 setOrders(data));
     }, [user, orders, navigate]);
 
@@ -47,34 +47,34 @@ const Myorders = () => {
 
     return (
         <div className='my-10'>
-            <h1 className='text-3xl font-semibold'>Orders: {orders.length}</h1>
+            <h1 className='text-3xl font-semibold mb-5 text-white tracking-wider'>Orders: {orders.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     <thead>
-                        <tr className='text-secondary'>
+                        <tr className='text-white'>
                             <th></th>
-                            <th className='text-xl'>Product</th>
-                            <th className='text-xl'>Quantity</th>
-                            <th className='text-xl'>Price</th>
-                            <th className='text-xl'>Delete</th>
-                            <th className='text-xl'>Payment</th>
-                            <th className='text-xl'>Transaction Id</th>
-                            <th className='text-xl'>Status</th>
+                            <th className='text-lg'>Product</th>
+                            <th className='text-lg'>Quantity</th>
+                            <th className='text-lg'>Price</th>
+                            <th className='text-lg'>Delete</th>
+                            <th className='text-lg'>Payment</th>
+                            <th className='text-lg'>Transaction Id</th>
+                            <th className='text-lg'>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr key={order._id} className='text-green-200 text-xl'>
+                            orders.map((order, index) => <tr key={order._id} className='text-white text-md'>
                                 <th>{index + 1}</th>
 
                                 <td>{order.productName}</td>
 
                                 <td>{order.orderQuantity} {order.orderUnit}</td>
 
-                                <td>$ {order.price}</td>
+                                <td>$ {order.orderPrice}</td>
 
                                 <td>
-                                    {!order.paid && <label htmlFor="my-modal" className='btn btn-sm text-xs bg-red-500 hover:text-red-500'>Cancel</label>}
+                                    {!order.paid && <label htmlFor="my-modal" className='btn btn-sm text-xs bg-transparent text-red-500 hover:bg-red-500 hover:text-secondary'>Cancel</label>}
 
                                     <input type="checkbox" id="my-modal" className="modal-toggle" />
                                     <div className="modal">
@@ -90,19 +90,25 @@ const Myorders = () => {
                                 </td>
 
                                 <td>
-                                    {!order.paid ? <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-sm bg-secondary'>Pay</button></Link> : <span className='text-accent'>Paid</span>}
+                                    {!order.paid
+                                        ?
+                                        <sapn className='btn btn-sm text-xs bg-transparent text-orangerrr border border-orangerrr hover:bg-orangerrr hover:text-secondary'>
+                                            <Link to={`/dashboard/payment/${order._id}`}><button>Pay</button></Link>
+                                        </sapn>
+                                        :
+                                        <span>Paid</span>}
                                 </td>
 
                                 <td>
-                                    {order.transectionID && <small className='text-accent'>{order.transectionID}</small>}
+                                    {order.transectionID && <span className='text-green-400'>{order.transectionID}</span>}
                                 </td>
 
                                 <td>
                                     {order.status
                                         ?
-                                        <p className='text-accent'>Shipped</p>
+                                        <p className='text-green-400'>Shipped</p>
                                         :
-                                        <p className='text-secondary'>{!order.paid ? "" : "Shipping"}</p>}
+                                        <p className='text-orangerrr'>{!order.paid ? "" : "Shipping"}</p>}
                                 </td>
 
                             </tr>)

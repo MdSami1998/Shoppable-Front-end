@@ -11,7 +11,7 @@ const Order = () => {
     const { orderId } = useParams();
 
     const [user] = useAuthState(auth);
-    const [price, setPrice] = useState(0)
+    const [orderPrice, setOrderPrice] = useState(0)
     const [quan, setQuan] = useState(0);
     const orderRef = useRef();
 
@@ -29,7 +29,7 @@ const Order = () => {
         const orderQuantity = orderRef.current.value;
         setQuan(orderQuantity);
         const newPrice = price * orderQuantity
-        setPrice(newPrice)
+        setOrderPrice(newPrice)
     }
 
 
@@ -43,7 +43,7 @@ const Order = () => {
         const address = e.target.address.value;
         const orderUnit = product.unit;
 
-        const order = { email, userName, productName, orderQuantity, address, price, orderUnit };
+        const order = { email, userName, productName, orderQuantity, address, orderPrice, orderUnit };
 
 
 
@@ -65,7 +65,7 @@ const Order = () => {
                 }
             })
         e.target.reset();
-        setPrice(0)
+        setOrderPrice(0)
 
         const updatedStock = parseInt(product.stock) - parseInt(orderQuantity);
         const stock = updatedStock;
@@ -73,6 +73,7 @@ const Order = () => {
         const name = product.name;
         const image = product.image;
         const unit = product.unit;
+        const price=product.price;
         const updatedProduct = { name, price, stock, image, unit };
 
         fetch(`http://localhost:5000/updateProduct/${orderId}`, {
@@ -128,7 +129,7 @@ const Order = () => {
                         <label className="label">
                             <span className="label-text text-white">Price: ${product.price} /{product.unit}  </span>
                         </label>
-                        <input type="text" value={`${price} $`} className="input input-bordered" required disabled />
+                        <input type="text" value={`${orderPrice} $`} className="input input-bordered" required disabled />
                     </div>
                     <div className="form-control">
                         <label className="label">
