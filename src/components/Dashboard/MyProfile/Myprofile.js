@@ -25,13 +25,13 @@ const Myprofile = () => {
     const handleProfileUpdate = (e) => {
         e.preventDefault();
         const email = member.email;
-
+        const displayName = e.target.name.value;
         const education = e.target.education.value;
         const city = e.target.city.value;
         const district = e.target.district.value;
         const phone = e.target.phone.value;
 
-        const updatedProfile = { education, city, district, phone };
+        const updatedProfile = { displayName, education, city, district, phone };
 
         fetch(`http://localhost:5000/member/${email}`, {
             method: 'PUT',
@@ -55,7 +55,7 @@ const Myprofile = () => {
                     <tbody>
                         <tr>
                             <td className='text-xl font-semibold text-white text-justify'>Name:</td>
-                            <td className='text-xl font-semibold'>{user?.displayName}</td>
+                            <td className='text-xl font-semibold'>{user?.displayName || member?.displayName}</td>
                         </tr>
                         <tr>
                             <td className='text-xl font-semibold text-white text-justify'>Email:</td>
@@ -83,30 +83,37 @@ const Myprofile = () => {
 
                     <div className="form-control">
                         <label className="label">
+                            <span className="label-text text-white">Name</span>
+                        </label>
+                        <input type="text" placeholder='name' className="input input-bordered" name='name' required />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
                             <span className="label-text text-white">Education</span>
                         </label>
-                        <input type="text" placeholder='Education' className="input input-bordered" name='education' required />
+                        <input type="text" placeholder='education' className="input input-bordered" name='education' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-white">City</span>
                         </label>
-                        <input type="text" placeholder='City' className="input input-bordered" name='city' required />
+                        <input type="text" placeholder='city' className="input input-bordered" name='city' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-white">District</span>
                         </label>
-                        <input type="text" placeholder='District' className="input input-bordered" name='district' required />
+                        <input type="text" placeholder='district' className="input input-bordered" name='district' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-white">Phone</span>
                         </label>
-                        <input type="text" placeholder='Phone Number' className="input input-bordered" name='phone' required />
+                        <input type="text" placeholder='phone number' className="input input-bordered" name='phone' required />
                     </div>
 
                     <div className="card-actions justify-center w-full mt-5">

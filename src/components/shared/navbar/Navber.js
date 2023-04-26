@@ -13,7 +13,7 @@ const Navber = () => {
 
     const menuItems = <>
         <li><Link className='btn btn-ghost' to='/'>Home</Link></li>
-        <li><Link className='btn btn-ghost' to="/about">About</Link></li>
+        <li><Link className='btn btn-ghost' to="/products">Products</Link></li>
         <li><Link className='btn btn-ghost' to="/contact">Contact</Link></li>
         {
             user && <li><Link className='btn btn-ghost' to="/dashboard">Dashboard</Link></li>

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import icon from '../../../Assets/Authentication Icons/Mobile login-amico.png'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import AuthenticationLoader from '../AuthenticationLoader/AuthenticationLoader';
@@ -17,15 +17,22 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-    
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    
+
     const [token] = useToken(user);
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
     let signupErrorMessage;
     if (error) {
+        console.log(error)
         signupErrorMessage =
             <div>
                 <p className='text-red-500'>Error: {error.message}</p>
@@ -36,13 +43,9 @@ const SignUp = () => {
         return <AuthenticationLoader></AuthenticationLoader>
     }
 
-    if (token) {
-        navigate(from, { replace: true });
-    }
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        const displayName = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
@@ -50,7 +53,7 @@ const SignUp = () => {
             setErrorMsg("Password Doesn't Match")
         }
         else {
-            await createUserWithEmailAndPassword(displayName, email, password, confirmPassword)
+            await createUserWithEmailAndPassword(email, password)
         }
     }
 
@@ -64,17 +67,9 @@ const SignUp = () => {
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white">Name</span>
-                            </label>
-                            <input type="text" name='email' placeholder="name" className="input input-bordered" required />
-                        </div>
-
-
-                        <div className="form-control">
-                            <label className="label">
                                 <span className="label-text text-white">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">

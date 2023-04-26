@@ -2,7 +2,6 @@ import './App.css';
 import Navber from './components/shared/navbar/Navber';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
-import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import AllProducts from './components/AllProducts/AllProducts';
 import LogIn from './components/shared/SignIn/SignIn';
@@ -18,6 +17,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Users from './components/Dashboard/Users/Users';
 import RequireAdmin from './components/shared/SignIn/RequireAdmin';
+import AddProduct from './components/Dashboard/AddProducts/AddProducts';
+import AddReview from './components/Dashboard/AddReview/AddReview';
+import ManageAllOrders from './components/Dashboard/ManageAllOrders/ManageAllOrders';
+import Payment from './components/Dashboard/Payment/Payment';
 
 function App() {
   return (
@@ -29,8 +32,6 @@ function App() {
         <Route path='home' element={<Home></Home>}></Route>
 
         <Route path='products' element={<AllProducts></AllProducts>}></Route>
-
-        <Route path='about' element={<About></About>}></Route>
 
         <Route path='contact' element={<Contact></Contact>}></Route>
 
@@ -52,7 +53,17 @@ function App() {
           </RequireAuth>
         }>
           <Route index element={<Myprofile></Myprofile>}></Route>
-          <Route path='orders' element={<Myorders></Myorders>}></Route>
+
+          <Route path='myOrders' element={<Myorders></Myorders>}></Route>
+
+          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+
+          <Route path='addreview' element={<AddReview></AddReview>}></Route>
+
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
+
+          <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+          
           <Route path='users' element={
             <RequireAdmin>
               <Users></Users>
