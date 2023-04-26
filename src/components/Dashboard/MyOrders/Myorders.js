@@ -92,9 +92,9 @@ const Myorders = () => {
                                 <td>
                                     {!order.paid
                                         ?
-                                        <sapn className='btn btn-sm text-xs bg-transparent text-orangerrr border border-orangerrr hover:bg-orangerrr hover:text-secondary'>
+                                        <span className='btn btn-sm text-xs bg-transparent text-orangerrr border border-orangerrr hover:bg-orangerrr hover:text-secondary'>
                                             <Link to={`/dashboard/payment/${order._id}`}><button>Pay</button></Link>
-                                        </sapn>
+                                        </span>
                                         :
                                         <span>Paid</span>}
                                 </td>
