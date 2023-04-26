@@ -54,23 +54,23 @@ const Myprofile = () => {
                 <table className="table w-full mt-10">
                     <tbody>
                         <tr>
-                            <td className='text-xl font-semibold text-white text-justify'>Name:</td>
+                            <td className='font-semibold text-white text-lg text-justify'>Name:</td>
                             <td className='text-xl font-semibold'>{user?.displayName || member?.displayName}</td>
                         </tr>
                         <tr>
-                            <td className='text-xl font-semibold text-white text-justify'>Email:</td>
+                            <td className='font-semibold text-white text-lg text-justify'>Email:</td>
                             <td className='text-lg'>{user?.email}</td>
                         </tr>
                         <tr>
-                            <td className='text-xl font-semibold text-white text-justify'>Education:</td>
+                            <td className='font-semibold text-white text-lg text-justify'>Education:</td>
                             <td className='text-lg'>{member?.education}</td>
                         </tr>
                         <tr>
-                            <td className='text-xl font-semibold text-white text-justify'>Address:</td>
-                            <td className='text-lg'><span className='text-white'>City:</span> {member?.city} <span style={{ marginLeft: '5rem' }} className='text-white'>District:</span> {member?.district}</td>
+                            <td className='font-semibold text-white text-lg text-justify'>Address:</td>
+                            <td className='text-lg'><span className='text-white text-lg'>City:</span> {member?.city} <span style={{ marginLeft: '5rem' }} className='text-white text-lg'>District:</span> {member?.district}</td>
                         </tr>
                         <tr>
-                            <td className='text-xl font-semibold text-white text-justify'>Phone:</td>
+                            <td className='font-semibold text-white text-lg text-justify'>Phone:</td>
                             <td className='text-lg'>{member?.phone}</td>
                         </tr>
                     </tbody>
@@ -83,35 +83,35 @@ const Myprofile = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white">Name</span>
+                            <span className="label-text text-white text-lg">Name</span>
                         </label>
                         <input type="text" placeholder='name' className="input input-bordered" name='name' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white">Education</span>
+                            <span className="label-text text-white text-lg">Education</span>
                         </label>
                         <input type="text" placeholder='education' className="input input-bordered" name='education' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white">City</span>
+                            <span className="label-text text-white text-lg">City</span>
                         </label>
                         <input type="text" placeholder='city' className="input input-bordered" name='city' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white">District</span>
+                            <span className="label-text text-white text-lg">District</span>
                         </label>
                         <input type="text" placeholder='district' className="input input-bordered" name='district' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white">Phone</span>
+                            <span className="label-text text-white text-lg">Phone</span>
                         </label>
                         <input type="text" placeholder='phone number' className="input input-bordered" name='phone' required />
                     </div>

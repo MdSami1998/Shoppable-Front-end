@@ -45,21 +45,21 @@ const Users = () => {
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     <thead>
-                        <tr className='text-secondary'>
+                        <tr className='text-white'>
                             <th></th>
-                            <th className='text-xl'>Name</th>
-                            <th className='text-xl'>Email</th>
+                            <th className='text-lg'>Name</th>
+                            <th className='text-lg'>Email</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users?.map((user, index) => <tr key={user._id} className='text-green-200 text-xl'>
+                            users?.map((user, index) => <tr key={user._id} className='text-white text-md'>
                                 <th>{index + 1}</th>
                                 <td className='uppercase'>{user.name}</td>
                                 <td>{user.email}</td>
 
-                                <td className='text-accent'>{user.role === 'admin' ? 'Admin' : <button onClick={() => makeAdmin(user.email, user.name)} className='btn btn-sm text-xs bg-secondary hover:bg-transparent text-black hover:text-secondary'>Make Admin</button>}</td>
+                                <td className='text-orangerrr'>{user.role === 'admin' ? 'Admin' : <button onClick={() => makeAdmin(user.email, user.name)} className='btn btn-sm text-secondary'>Make Admin</button>}</td>
                             </tr>)
                         }
 

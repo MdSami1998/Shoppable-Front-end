@@ -40,11 +40,11 @@ const ManageAllOrders = () => {
     }
     return (
         <div className='my-5'>
-            <h1 className='text-3xl text-accent font-semibold mb-8'>Total Orders: {orders.length}</h1>
+            <h1 className='text-3xl text-white tracking-widest font-semibold mb-8'>Total Orders: {orders.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     <thead>
-                        <tr className='text-secondary'>
+                        <tr className='text-white'>
                             <th></th>
                             <th className='text-lg'>User email</th>
                             <th className='text-lg'>user name</th>
@@ -71,10 +71,14 @@ const ManageAllOrders = () => {
 
                                 <td className='uppercase'>{order.address}</td>
 
-                                <td> {!order.paid && <button onClick={() => handleAdminDeleteOrder(order._id)} className='btn btn-sm text-xs bg-red-500 hover:text-red-500'>Delete</button>}</td>
+                                <td> {!order.paid &&
+                                    <span className='btn btn-sm text-xs bg-transparent text-red-500 hover:bg-red-500 hover:text-secondary'>
+                                        <button onClick={() => handleAdminDeleteOrder(order._id)}>Delete</button>
+                                    </span>
+                                }</td>
 
                                 <td>
-                                    {!order.paid ? <button className='text-secondary'>Not paid</button> : <span className='text-accent'>Paid</span>}
+                                    {!order.paid ? <button className='text-orangerrr'>Not paid</button> : <span className='text-green-400'>Paid</span>}
                                 </td>
 
                                 <td>
@@ -82,11 +86,11 @@ const ManageAllOrders = () => {
                                         <>
                                             {order.status === "shipped"
                                                 ?
-                                                <h1 className='text-accent'>Shipped</h1>
+                                                <h1 className='text-green-400'>Shipped</h1>
                                                 :
-                                                <button 
-                                                onClick={() => handleShipment(order._id)} 
-                                                className='text-accent btn btn-sm bg-secondary'>Pending</button>}
+                                                <span className='btn btn-sm text-xs bg-transparent text-orangerrr border border-orangerrr hover:bg-orangerrr hover:text-secondary'>
+                                                    <button onClick={() => handleShipment(order._id)}>Pending</button>
+                                                </span>}
                                         </>
                                     }
                                 </td>

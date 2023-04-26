@@ -53,40 +53,44 @@ const AddProduct = () => {
     return (
 
         <div>
-            <h1 className='text-4xl font-semibold text-secondary mt-10'>Add a product</h1>
+            <h1 className='text-4xl md:text-5xl text-white mb-10 mt-16 md:mt-0 tracking-widest font-semibold'>Add a Product</h1>
             <form onSubmit={handleAddProduct}>
                 <div className="card-body p-3 md:p-8 w-full md:w-3/6 mx-auto  rounded-lg">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Name</span>
+                            <span className="label-text text-white text-lg">Name:</span>
                         </label>
                         <input type="text" placeholder='Product name' className="input input-bordered" name='name' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Price</span>
+                            <span className="label-text text-white text-lg">Price</span>
                         </label>
                         <input type="number" placeholder='Product price' className="input input-bordered" name='price' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-accent">Avaiable Stock</span>
+                            <span className="label-text text-white text-lg">Avaiable Stock</span>
                         </label>
                         <input type="number" placeholder='stock' className="input input-bordered" name='stock' required />
                     </div>
 
-                    <select className="select select-bordered w-full mt-6" name='selectUnit'  required>
+                    <select className="select select-bordered w-full mt-6" name='selectUnit' required>
                         <option disabled selected>Select Unit</option>
                         <option value='kg'>kg</option>
                         <option value='pcs'>pcs</option>
                         <option value='littre'>L</option>
                     </select>
 
-                    <input onChange={handleImage} type="file" name='file' className="file-input file-input-bordered w-full max-w-xs" />
+                    <input onChange={handleImage} type="file" name='file' className="mt-5 file-input file-input-bordered w-full " />
 
-                    <input className='btn btn-secondary hover:bg-transparent hover:text-secondary w-2/5 mx-auto' type="submit" value="Add Product" />
+                    <div className="card-actions justify-center w-full mt-5">
+                        <button type='submit' className='signInBtn'>Add Product
+                        </button>
+                    </div>
+
                 </div>
             </form>
         </div>
