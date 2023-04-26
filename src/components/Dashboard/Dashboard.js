@@ -20,8 +20,18 @@ const Dashboard = () => {
                 <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard' className='text-orangerrr text-xl'>My Profile</Link></li>
-                    <li><Link to='/dashboard/orders' className='text-orangerrr text-xl'>Orders</Link></li>
+
+                    {/* <li><Link to='/dashboard/orders' className='text-orangerrr text-xl'>My Orders</Link></li> */}
+
+                    {!admin && <li><Link to="/dashboard/myorders" className='text-orangerrr text-xl'>My Orders</Link></li>}
+
                     {admin && <li><Link to='/dashboard/users' className='text-orangerrr text-xl'>Users</Link></li>}
+
+                    {admin && <li><Link to='/dashboard/addproduct' className='text-orangerrr text-xl'>Add Product</Link></li>}
+
+                    {admin && <li><Link to='/dashboard/manageallorders' className='text-orangerrr text-xl'>Manage All Orders</Link></li>}
+
+                    {!admin && <li><Link to='/dashboard/addreview' className='text-orangerrr text-xl'>Add Review</Link></li>}
                 </ul>
 
             </div>

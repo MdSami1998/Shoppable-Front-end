@@ -31,19 +31,19 @@ const Myorders = () => {
 
 
     // handle order cancel button from My Order page in Dashboard
-    // const handleCancelOrder = (id) => {
-    //     const url = `http://localhost:5000/orders/${id}`;
-    //     fetch(url, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.deleteCount > 0) {
-    //                 const remaining = orders.filter(product => product._id !== id);
-    //                 setOrders(remaining);
-    //             }
-    //         })
-    // }
+    const handleCancelOrder = (id) => {
+        const url = `http://localhost:5000/order/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deleteCount > 0) {
+                    const remaining = orders.filter(product => product._id !== id);
+                    setOrders(remaining);
+                }
+            })
+    }
 
     return (
         <div className='my-10'>
@@ -83,7 +83,7 @@ const Myorders = () => {
                                             <h3 className="font-bold text-lg">Do you want to cancel the order?</h3>
                                             <div className="modal-action flex justify-center">
                                                 <button>cancel</button>
-                                                {/* <label onClick={() => handleCancelOrder(order._id)} htmlFor="my-modal" className='btn btn-md text-md bg-red-500 hover:text-red-500 text-black'>Yes</label> */}
+                                                <label onClick={() => handleCancelOrder(order._id)} htmlFor="my-modal" className='btn btn-md text-md bg-red-500 hover:text-red-500 text-black'>Yes</label>
                                             </div>
                                         </div>
                                     </div>
