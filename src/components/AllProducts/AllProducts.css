@@ -39,14 +39,13 @@
 .search-input:not(:placeholder-shown) {
     background-color: #1A2647;
     outline: 2px solid #0691FB;
-    /* color: black; */
     color: #fff;
     width: 300px;
     cursor: none;
     padding: 18px 16px 18px 25px;
 }
 
-.icon {
+.search-product-icon {
     position: absolute;
     right: 20px;
     top: 0;
@@ -58,8 +57,8 @@
     fill: #0691FB;
 }
 
-.search-input:focus+.icon,
-.search-input:not(:placeholder-shown)+.icon {
+.search-input:focus+.search-product-icon,
+.search-input:not(:placeholder-shown)+.search-product-icon {
     z-index: 0;
     background-color: transparent;
     border: none;
