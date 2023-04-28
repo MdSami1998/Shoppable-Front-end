@@ -98,7 +98,7 @@ const CheckoutForm = ({ order }) => {
 
 
     return (
-        <>
+        <div>
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{
@@ -107,7 +107,7 @@ const CheckoutForm = ({ order }) => {
                                 fontSize: '16px',
                                 color: '#ffffff',
                                 '::placeholder': {
-                                    color: '#aab7c4',
+                                    color: '#ffffff',
                                 },
                             },
                             invalid: {
@@ -116,17 +116,17 @@ const CheckoutForm = ({ order }) => {
                         },
                     }}
                 />
-                <button className='btn btn-secondary sm:btn-sm md:btn-md hover:bg-transparent hover:text-secondary mt-5' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='signInBtn mt-12' type="submit" disabled={!stripe || !clientSecret}>
                     Pay Now
                 </button>
             </form>
             {cardError && <p className='text-red-500'>{cardError}</p>}
 
-            {success && <div className='text-accent'>
+            {success && <div className='text-white'>
                 <p>{success}</p>
-                <p>Transection ID: <span className='text-secondary font-semibold'>{transectionID}</span></p>
+                <p>Transection ID: <span className='text-white font-semibold'>{transectionID}</span></p>
             </div>}
-        </>
+        </div>
     );
 };
 
