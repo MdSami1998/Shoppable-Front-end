@@ -18,9 +18,9 @@ const Products = () => {
     return (
         <div>
             <h1 className='text-4xl md:text-5xl text-white mb-10 mt-16 md:mt-0 tracking-widest font-semibold'>Our Products</h1>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 px-5'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 px-5'>
                 {
-                    products?.slice(0, 4).map(product => <Product product={product} key={product._id}></Product>)
+                    products?.slice(0, 5).map(product => <Product product={product} key={product._id}></Product>)
                 }
             </div>
 
