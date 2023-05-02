@@ -84,7 +84,7 @@ const AddProduct = () => {
                         <option value='littre'>L</option>
                     </select>
 
-                    <input onChange={handleImage} type="file" name='file' className="mt-5 file-input file-input-bordered w-full " />
+                    <input onChange={handleImage} type="file" name='file' className="mt-5 file-input file-input-bordered w-full " required />
 
                     <div className="card-actions justify-center w-full mt-5">
                         <button type='submit' className='signInBtn'>Add Product
