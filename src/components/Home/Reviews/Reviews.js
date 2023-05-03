@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../../shared/Loader/Loader';
-import { UserCircleIcon} from '@heroicons/react/solid';
+import { UserCircleIcon } from '@heroicons/react/solid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -9,7 +9,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { EffectCoverflow } from 'swiper';
+import { EffectCoverflow, Pagination } from 'swiper';
 
 const Reviews = () => {
     const { data: reviews, isLoading } = useQuery('reviews', () =>
@@ -37,6 +37,7 @@ const Reviews = () => {
                     grabCursor={true}
                     centeredSlides={true}
                     slidesPerView={"auto"}
+                    pagination={true}
                     coverflowEffect={{
                         rotate: 50,
                         stretch: 0,
@@ -45,7 +46,7 @@ const Reviews = () => {
                         slideShadows: true,
                     }}
 
-                    modules={[EffectCoverflow]}
+                    modules={[EffectCoverflow, Pagination]}
                     className="mySwiper"
                 >
 
