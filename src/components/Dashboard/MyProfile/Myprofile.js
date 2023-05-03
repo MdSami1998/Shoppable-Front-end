@@ -55,23 +55,23 @@ const Myprofile = () => {
                     <tbody>
                         <tr>
                             <td className='font-semibold text-white text-lg text-justify'>Name:</td>
-                            <td className='text-xl font-semibold'>{user?.displayName || member?.displayName}</td>
+                            <td className='text-xl font-semibold text-white'>{user?.displayName || member?.displayName}</td>
                         </tr>
                         <tr>
                             <td className='font-semibold text-white text-lg text-justify'>Email:</td>
-                            <td className='text-lg'>{user?.email}</td>
+                            <td className='text-lg text-white'>{user?.email}</td>
                         </tr>
                         <tr>
                             <td className='font-semibold text-white text-lg text-justify'>Education:</td>
-                            <td className='text-lg'>{member?.education}</td>
+                            <td className='text-lg text-white'>{member?.education}</td>
                         </tr>
                         <tr>
                             <td className='font-semibold text-white text-lg text-justify'>Address:</td>
-                            <td className='text-lg'><span className='text-white text-lg'>City:</span> {member?.city} <span style={{ marginLeft: '5rem' }} className='text-white text-lg'>District:</span> {member?.district}</td>
+                            <td className='text-lg text-white'><span className='text-neutral font-semibold text-lg'>City:</span> {member?.city} <span style={{ marginLeft: '5rem' }} className='text-neutral font-semibold text-lg'>District:</span> {member?.district}</td>
                         </tr>
                         <tr>
                             <td className='font-semibold text-white text-lg text-justify'>Phone:</td>
-                            <td className='text-lg'>{member?.phone}</td>
+                            <td className='text-lg text-white'>{member?.phone}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,7 +79,7 @@ const Myprofile = () => {
             <h1 className='text-2xl md:text-5xl text-orangerrr mb-8 mt-16 tracking-widest font-semibold'>Update Your Details</h1>
 
             <form onSubmit={handleProfileUpdate}>
-                <div className="card-body p-3 md:p-8 w-full md:w-3/6  rounded-lg">
+                <div className="card-body p-3 md:p-8 w-full md:w-3/6  rounded-lg text-white">
 
                     <div className="form-control">
                         <label className="label">
