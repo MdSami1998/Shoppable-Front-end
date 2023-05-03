@@ -21,6 +21,7 @@ import AddProduct from './components/Dashboard/AddProducts/AddProducts';
 import AddReview from './components/Dashboard/AddReview/AddReview';
 import ManageAllOrders from './components/Dashboard/ManageAllOrders/ManageAllOrders';
 import Payment from './components/Dashboard/Payment/Payment';
+import ManageProducts from './components/Dashboard/ManageProducts/ManageProducts';
 
 function App() {
   return (
@@ -63,6 +64,8 @@ function App() {
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
 
           <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+
+          <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
           
           <Route path='users' element={
             <RequireAdmin>

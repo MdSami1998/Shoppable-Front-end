@@ -29,7 +29,8 @@ const Dashboard = () => {
 
                     {admin && <li><Link to='/dashboard/addproduct' className='text-orangerrr text-xl'>Add Product</Link></li>}
 
-                    {admin && <li><Link to='/dashboard/manageallorders' className='text-orangerrr text-xl'>Manage All Orders</Link></li>}
+                    {admin && <li><Link to='/dashboard/manageallorders' className='text-orangerrr text-xl'>Manage All Orders</Link></li>} 
+                    {admin && <li><Link to='/dashboard/manageproducts' className='text-orangerrr text-xl'>Manage Products</Link></li>}
 
                     {!admin && <li><Link to='/dashboard/addreview' className='text-orangerrr text-xl'>Add Review</Link></li>}
                 </ul>
