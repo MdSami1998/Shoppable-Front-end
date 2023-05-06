@@ -20,10 +20,11 @@ const AddReview = () => {
         e.preventDefault();
         const rating = ratingRef.current.value;
         const review = e.target.userReview.value;
-        console.log(rating, review)
+        const reviewerName = e.target.reviewerName.value;
+
 
         const userReview = {
-            rating, review
+            rating, review,reviewerName
         }
 
         if (rating < 0 || rating > 5) {
@@ -53,6 +54,13 @@ const AddReview = () => {
             <h1 className='text-4xl md:text-5xl text-white mb-10 mt-16 md:mt-0 tracking-widest font-semibold'>Share Your Opinion</h1>
             <form onSubmit={handleAddReview}>
                 <div className="card-body p-3 md:p-8 w-full md:w-3/6 mx-auto">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-orangerrr text-lg">Name</span>
+                        </label>
+                        <input type="text" placeholder='your name' className="input input-bordered" name='reviewerName' required />
+                    </div>
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-orangerrr text-lg">Rating</span>
