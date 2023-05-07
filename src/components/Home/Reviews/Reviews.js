@@ -9,7 +9,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { EffectCoverflow, Pagination } from 'swiper';
+import { EffectCoverflow, Pagination,Navigation } from 'swiper';
 
 
 const Reviews = () => {
@@ -37,9 +37,11 @@ const Reviews = () => {
                 <Swiper
                     style={{
                         "--swiper-pagination-color": "#FFBA08",
+                        "--swiper-navigation-color": "#FFBA08",
+                        "--swiper-navigation-size": "28px",
                         "--swiper-pagination-bullet-inactive-color": "#999999",
                         "--swiper-pagination-bullet-inactive-opacity": "1",
-                        "--swiper-pagination-bullet-size": "14px",
+                        "--swiper-pagination-bullet-size": "12px",
                         "--swiper-pagination-bullet-horizontal-gap": "6px"
                     }}
 
@@ -47,7 +49,8 @@ const Reviews = () => {
                     grabCursor={true}
                     centeredSlides={true}
                     slidesPerView={"auto"}
-                    pagination={true}
+                    pagination={{clickable: true}}
+                    navigation={{clickable:true}}
                     coverflowEffect={{
                         rotate: 50,
                         stretch: 0,
@@ -56,7 +59,7 @@ const Reviews = () => {
                         slideShadows: true,
                     }}
 
-                    modules={[EffectCoverflow, Pagination]}
+                    modules={[EffectCoverflow, Pagination,Navigation]}
                     className="mySwiper h-56"
                 >
 
