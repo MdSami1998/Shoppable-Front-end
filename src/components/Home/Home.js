@@ -3,7 +3,7 @@ import HeroBanner from './HeroBanner/HeroBanner';
 import Products from './Products/Products';
 import BusinessSummery from './BusinessSummery/BusinessSummery';
 import Reviews from './Reviews/Reviews';
-import TeamMembers from './TeamMembers/TeamMembers';
+import Subscribe from './Reviews/Subscribe/Subscribe';
 
 const Home = () => {
     return (
@@ -12,7 +12,7 @@ const Home = () => {
             <BusinessSummery></BusinessSummery>
             <Products></Products>
             <Reviews></Reviews>
-            <TeamMembers></TeamMembers>
+            <Subscribe></Subscribe>
         </div>
     );
 };
