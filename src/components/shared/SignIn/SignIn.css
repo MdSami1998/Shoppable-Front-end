@@ -1,0 +1,22 @@
+.signInBtn {
+    font-size: 16px;
+    padding: 0.5em 2em;
+    border: transparent;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background: #ffb700;
+    color: #1A2647;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: .2s cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 3px;
+}
+
+.signInBtn:hover {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, #FF9900 0%, #ffcd4e 100%);
+    letter-spacing: 5px;
+}
+
+.signInBtn:active {
+    transform: translate(0em, 0.2em);
+}

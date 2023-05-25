@@ -1,6 +1,7 @@
 import React from 'react';
 import './HeroBanner.css'
 import hero from '../../../Assets/BAnner.jfif'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -10,21 +11,25 @@ const Banner = () => {
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <img className="w-full lg:max-w-lg rounded-lg shadow-2xl" src={hero} alt="" />
                         <div className='text-left'>
-                            <h1 className="text-3xl md:text-5xl font-bold text-neutral tracking-widest">Shoppable!</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold text-neutral tracking-widest">Shoppable!</h1>
 
                             <p className="py-6 text-lg md:text-2xl md:mt-8">The One-Stop Grocery Store for All Your Needs. Shop anytime, anywhere and enjoy the ease of online grocery shopping with us. Shop Fresh, Shop Fast, Shop Conveniently</p>
 
-                            <button class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                    <span class="icon arrow"></span>
+                            <Link to="/products">
+                            <button className="learn-more">
+                                <span className="circle" aria-hidden="true">
+                                    <span className="icon arrow"></span>
                                 </span>
-                                <span class="button-text">Learn More</span>
+                                <span className="button-text">Shop Now</span>
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        
     );
 };
 

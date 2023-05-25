@@ -1,11 +1,29 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navber = () => {
+    const [user] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth)
+        localStorage.removeItem('accessToken')
+    }
+
     const menuItems = <>
         <li><Link className='btn btn-ghost' to='/'>Home</Link></li>
-        <li><Link className='btn btn-ghost' to="/about">About</Link></li>
+        <li><Link className='btn btn-ghost' to="/products">Products</Link></li>
         <li><Link className='btn btn-ghost' to="/contact">Contact</Link></li>
+        {
+            user && <li><Link className='btn btn-ghost' to="/dashboard">Dashboard</Link></li>
+        }
+        {
+            user ?
+                <li><button onClick={handleSignOut} className='btn btn-ghost'>Sign out</button></li>
+                :
+                <li><Link className='btn btn-ghost' to="/signin">Sign In</Link></li>
+        }
     </>
     return (
         <div className='text-white flex justify-between py-5 sticky top-0 z-10 bg-base-100'>
@@ -20,8 +38,15 @@ const Navber = () => {
                         </ul>
                     </div>
 
-                    <div className='flex justify-center md:justify-start w-full'>
-                        <h1 className='font-bold text-xl -ml-10 md:ml-0 md:text-2xl lg:text-3xl'>SHOPP<span className='text-neutral'>ABLE</span></h1>
+
+                    <Link to='/' className='cursor-pointer'>
+                        <div className='flex justify-between md:justify-start w-full'>
+                            <h1 className='font-bold text-xl ml-10 md:ml-0 md:text-2xl lg:text-3xl'>SHOPP<span className='text-neutral'>ABLE</span></h1>
+                        </div>
+                    </Link>
+
+                    <div className="navbar-end">
+                        <label htmlFor="my-drawer-2" className="btn btn-primary text-white drawer-button lg:hidden">Dashboard</label>
                     </div>
 
                 </div>
