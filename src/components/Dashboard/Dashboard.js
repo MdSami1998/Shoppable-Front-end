@@ -21,8 +21,6 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard' className='text-orangerrr text-xl'>My Profile</Link></li>
 
-                    {/* <li><Link to='/dashboard/orders' className='text-orangerrr text-xl'>My Orders</Link></li> */}
-
                     {!admin && <li><Link to="/dashboard/myorders" className='text-orangerrr text-xl'>My Orders</Link></li>}
 
                     {admin && <li><Link to='/dashboard/users' className='text-orangerrr text-xl'>Users</Link></li>}
